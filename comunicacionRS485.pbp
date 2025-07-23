@@ -1,0 +1,62 @@
+'****************************************************************
+'*  Name    : UNTITLED.BAS                                      *
+'*  Author  : [select VIEW...EDITOR OPTIONS]                    *
+'*  Notice  : Copyright (c) 2025 [select VIEW...EDITOR OPTIONS] *
+'*          : All Rights Reserved                               *
+'*  Date    : 21/02/2025                                        *
+'*  Version : 1.0                                               *
+'*  Notes   :                                                   *
+'*          :                                                   *
+'****************************************************************
+'DECLARACION DE VARIABLES
+ ID VAR BYTE
+ VBLE1 VAR BYTE
+ VBLE2 VAR BYTE
+ VBLE3 VAR BYTE         
+ 
+ 'DESIGNACION DE PINES
+ LOAD VAR PORTB.0 'PIN DONDE ESTA CONECTADA LA CARGA
+ TX VAR PORTC.6
+ EN VAR PORTC.5
+ RX VAR PORTC.7                                                                    
+
+'DECLARACION DE LOS PUERTOS COMO SALIDAS
+ TRISA = %00000000
+ TRISB = %00000000
+ TRISC = %00000000
+ 
+ 'MODIFICACION DE REGISTROS
+ ANSEL = %00000000
+ ANSELH = %00000000
+ 
+ 'INICIALIZACION DE VARIAVLES Y SALIDAS
+ ID=0
+ VBLE1=0
+ VBLE2=0
+ VBLE3=0
+ 'DECLARAR EL PUERTO APAGADO O PRENDIDOS
+ PORTA = 0: PORTB = 0: PORTC=0
+ 
+ MAIN:
+ 
+ HIGH TX
+ HIGH EN        'SE AGREGO
+ SEROUT2 TX,84,["HELLLO WORD",10,13]
+ PAUSE 2000
+ LOW TX
+ lOW EN
+ SERIN2 RX,84,[ID,VBLE1,VBLE2,VBLE3]
+ HIGH TX          'SE AGREGO
+ HIGH EN
+ SEROUT2 TX,84,[DEC ID," ",DEC VBLE1," ",DEC VBLE2," ",DEC VBLE3,10,13]
+ IF ID=49 THEN 
+    IF VBLE1 = 49 THEN
+    HIGH LOAD
+    ENDIF
+    IF VBLE1 = 48 THEN
+    low LOAD
+    ENDIF
+ ENDIF
+
+ GOTO MAIN
+ 
