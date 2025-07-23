@@ -1,6 +1,6 @@
 '****************************************************************
-'*  Name    : UNTITLED.BAS                                      *
-'*  Author  : [select VIEW...EDITOR OPTIONS]                    *
+'*  Name    : Comunicacion RS485                                      *
+'*  Author  : [Mario Sanchez Arcila]                    *
 '*  Notice  : Copyright (c) 2025 [select VIEW...EDITOR OPTIONS] *
 '*          : All Rights Reserved                               *
 '*  Date    : 21/02/2025                                        *
@@ -8,6 +8,10 @@
 '*  Notes   :                                                   *
 '*          :                                                   *
 '****************************************************************
+'SE REALIZA UN PROGRAMA QUE ME PRIMITA LA COMUNICACION ENTRE EL PIC16F886 Y EL 
+'COMPUTADOR POR MEDIO DEL MODULO MAX485, PARA PROBAR ME ACTIVAY DESACTIVA UNA 
+'CARGA EN DETERMINADO PUERTO
+
 'DECLARACION DE VARIABLES
  ID VAR BYTE
  VBLE1 VAR BYTE
